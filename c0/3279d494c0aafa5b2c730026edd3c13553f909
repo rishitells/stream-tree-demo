@@ -1,0 +1,19 @@
+README.md
+  s_e22e8396c387bf::t_c7bacf8651fc02 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "c03279d494c0aafa5b2c730026edd3c13553f909",
+  "prompts": {},
+  "sessions": {
+    "s_e22e8396c387bf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "663a3db2-3014-4453-8832-d21b1af30ef0",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rishabh Sharma <rishabhsharma@Rishabhs-Work-Macbook.local>"
+    }
+  }
+}
