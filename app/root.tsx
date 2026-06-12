@@ -23,6 +23,17 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+// Safari/WebKit won't paint a STREAMED response until the <body> holds ~512
+// chars of *rendered* content (open WebKit bug 252413 / 265386). Bytes in
+// <head>, HTML comments, <script>, <style>, and display:none/visibility:hidden
+// do NOT count — only real layout-rendered content does. Zero-width spaces
+// (U+200B) are counted as text but are invisible and collapse to zero size, so
+// a run of them in a 0x0 box at the top of <body> trips the heuristic without
+// showing anything. Must be in the initial (synchronous) shell so it flushes
+// in the first chunk. NOTE: this is an unfixed WebKit bug; the trick is
+// "works for now", not standards-backed.
+const SAFARI_STREAM_PAD = "\u200b".repeat(1500);
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -33,6 +44,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <div aria-hidden="true" style={{ width: 0, height: 0, overflow: "hidden" }}>
+          <span dangerouslySetInnerHTML={{ __html: SAFARI_STREAM_PAD }} />
+        </div>
         {children}
         <ScrollRestoration />
         <Scripts />
