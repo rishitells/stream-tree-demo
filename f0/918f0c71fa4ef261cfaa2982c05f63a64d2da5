@@ -1,0 +1,20 @@
+app/root.tsx
+  s_e22e8396c387bf::t_d6455c4d09656f 47,49
+  s_e22e8396c387bf::t_5ca35067349401 26-34,36,48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.6",
+  "base_commit_sha": "f0918f0c71fa4ef261cfaa2982c05f63a64d2da5",
+  "prompts": {},
+  "sessions": {
+    "s_e22e8396c387bf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "663a3db2-3014-4453-8832-d21b1af30ef0",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Rishabh Sharma <rishabhsharma@Rishabhs-Work-Macbook.local>"
+    }
+  }
+}
